@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main1301() {
+int constRef01() {
     //普通引用
     int a = 10;
     int &b = a;
@@ -18,7 +18,7 @@ int main1301() {
     cout << "常量引用 y = " << y << endl;
 
     //> 用字面量初始化常量引用
-//    int &n = 32; //错误
+//    int &n = 32; //错误 编译不通过
     const int &m = 43;
     cout << "字面初始化：" << m << endl;
     return 0;
@@ -29,16 +29,25 @@ struct Teacher {
     int age;
 };
 
-void printT(const Teacher &t) {
+//常量引用，只读，不能修改
+void printTeacher(const Teacher &t) {
 //    t.name = "temp";//错误；
     //常量引用 让 实参变量 拥有只读属性
-    cout << "teacher = " << t.name << t.age << endl;
+//    t.age = 10;
+    cout << "teacher = " << t.name <<",age = "<< t.age << endl;
 }
 
-int main1302() {
+int constRef02() {
     Teacher t1;
     t1.age = 11;
     t1.name = "teacher1";
 
-    printT(t1);
+    printTeacher(t1);
+    return 0;
+}
+
+
+int main() {
+    constRef01();
+    constRef02();
 }
