@@ -41,29 +41,25 @@ public:
         cout << "析构函数执行" << endl;
     }
 
+public:
+    int getA() {
+        return this->a;
+    }
+
 private:
     int a;
     int b;
 };
 
 int main() {
-    //无参数构造函数
-    Test t1;
-    //Test t5();//错误
+    Test t1(2, 1);
 
-    //有参数构造函数
-    Test t2(2, 1);//C++编译器自动调用构造函数
-    Test t3 = 3;//C++编译器自动调用构造函数
-    //=被功能性增强
-    //Test t4 = (3, 4);//错误，输入的是最后一个值4；
+    //第一种拷贝构造函数
+    Test t2 = t1;
+    cout << "t2.a:" << t2.getA() << endl;
 
-
-    //手动调用构造函数
-    Test t4 = Test(2, 1);//匿名对象
-
-    //拷贝初始化1
-    Test t5 = t1;
-    //拷贝初始化2
-    Test t6(t2);
+    //第二种拷贝构造函数
+    Test t3(t1);
+    cout << "t3.a:" << t3.getA() << endl;
 
 }

@@ -40,20 +40,17 @@ private:
  * 业务函数
  * @param l
  */
-void fun(Location l) {
-    cout << "fun x = " << l.getX() << ",y = " << l.getY() << endl;
+void fun(Location location) {
+    //location是一个新的对象，被形参copy初始化的新对象；
+    cout << "fun x = " << location.getX() << ",y = " << location.getY() << endl;
 }
 
-void playObj() {
+int main() {
     Location l1(1, 2);
 
     //拷贝构造函数
     Location l2 = l1;
 
-    //l2实参初始化形参，会调用拷贝构造函数
-    fun(l2);
-}
-
-int main305() {
-    playObj();
+    //l1实参初始化形参，会调用拷贝构造函数，l1和fun方法内的location不是一个对象；
+    fun(l1);
 }
