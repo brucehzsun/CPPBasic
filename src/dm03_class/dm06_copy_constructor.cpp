@@ -36,23 +36,23 @@ private:
     int x, y;
 };
 
-Location fun306() {
+Location getLocation() {
     Location a(1, 2);
     return a;
 }
 
-void playObj306() {
-    //不是拷贝
-    Location b;
-    b = fun306();
+int main() {
+    //不是拷贝,是赋值操作；执行了copy构造函数
+//    Location b;
+//    b = getLocation();
+
+    cout << "========"<< endl;
+    //也没有调用拷贝构造函数
+    Location c = getLocation();
+
+    cout << "========"<< endl;
 
     //也没有调用拷贝构造函数
-    Location c = fun306();
-
-    //也没有调用拷贝构造函数
-    fun306();
-}
-
-int main306() {
-    playObj306();
+//    getLocation();
+    cout << "========"<< endl;
 }

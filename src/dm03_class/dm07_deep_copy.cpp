@@ -6,9 +6,9 @@
 using namespace std;
 
 
-class Teacher307 {
+class Teacher {
 public:
-    Teacher307(const char *p) {
+    Teacher(const char *p) {
         m_len = strlen(p);
         m_p = (char *) malloc(m_len + 1);
         strcpy(m_p, p);
@@ -19,14 +19,14 @@ public:
      * 深拷贝
      * @param teacher
      */
-    Teacher307(const Teacher307 &teacher) {
+    Teacher(const Teacher &teacher) {
         m_len = teacher.m_len;
         m_p = (char *) malloc(m_len + 1);
         strcpy(m_p, teacher.m_p);
         cout << "深拷贝，拷贝构造函数" << endl;
     }
 
-    ~Teacher307() {
+    ~Teacher() {
         cout << "析构函数，name = " << &m_p << endl;
         if (m_p != NULL) {
             free(m_p);
@@ -44,17 +44,16 @@ private:
     int m_len;
 };
 
-void mainPlayObject307() {
-    Teacher307 t1("aaaaaaabbbbbbb");
+
+int main() {
+    Teacher t1("aaaaaaabbbbbbb");
     cout << "t1.name = " << t1.getName() << endl;
-//    Teacher307 t2 = t1;//拷贝构造函数
 
-    Teacher307 t3("Teacher3");
+    //拷贝构造函数，浅拷贝，如果没有拷贝构造函数会出错
+    Teacher t2 = t1;//拷贝构造函数
 
-    //等号操作符是浅拷贝，会导致内存泄漏；
+
+    //等号操作符是浅拷贝，会导致内存泄漏；必须重载等号操作符
+    Teacher t3("Teacher3");
     t3 = t1;
-}
-
-int main307() {
-    mainPlayObject307();
 }
