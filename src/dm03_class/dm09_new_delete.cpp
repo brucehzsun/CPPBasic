@@ -16,12 +16,13 @@ void testBasic() {
     cout << "p1 = " << *p1 << endl;
     free(p1);
 
-    //C++预发
+    //C++语法
     int *p2 = new int;
     *p2 = 20;
     cout << "p2 = " << *p2 << endl;
     delete p2;
 
+    //直接初始化
     int *p3 = new int(30);
     cout << "p3 = " << *p3 << endl;
     delete p3;
@@ -84,7 +85,7 @@ void testObj() {
 
 
 int main() {
-//    testBasic();
-//    testArray();
+    testBasic();
+    testArray();
     testObj();
 }
