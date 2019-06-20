@@ -23,7 +23,7 @@ private:
 
 class B {
 public:
-    //列表构造函数，使用参数位置代表参数
+    //列表构造函数，直接传入参数；
     B(int m, int n) : a1(1), a2(2) {
         cout << "构造函数B" << endl;
     }
@@ -42,15 +42,14 @@ public:
 private:
     int m;
     int n;
+    //构造函数安装声明的顺序；
     A a2;
     A a1;
 };
 
-void mainPlayObject310() {
-//    B b(1, 2);
-    B(1, 2, 3, 4);
-};
 
-int main1001() {
-    mainPlayObject310();
+
+int main() {
+//        B b(11, 12);
+    B(11, 12, 13, 14);
 }
