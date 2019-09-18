@@ -12,17 +12,19 @@ using namespace std;
 
 typedef void (*CommandCallback)(void *dec, int command);
 
-class LmRunLoop: public RunLoop {
+class LmRunLoop : public RunLoop {
 public:
     LmRunLoop();
+
     ~LmRunLoop();
 
     //多线程
     virtual void DoMainLoop();
 
-    void RegistCallback(void* dec,CommandCallback func);
+    void RegistCallback(void *dec, CommandCallback func);
+
 private:
-    void*   dec_;
+    void *dec_;
     CommandCallback func_;
 
 //    std::map<int, std::shared_ptr<xFSTContainer>> lmMap;
