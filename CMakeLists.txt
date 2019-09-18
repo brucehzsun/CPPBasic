@@ -45,5 +45,16 @@ set(CMAKE_CXX_STANDARD 14)
 #add_executable(CPPBasic_d06_03 src/dm06_thread/dm03_mutex.cpp)
 #add_executable(CPPBasic_d06_04 src/dm06_thread/dm04_condition1.cpp)
 #add_executable(CPPBasic_d06_05 src/dm06_thread/dm05_condition2.cpp)
-add_executable(CPPBasic_d06_06 src/dm06_thread/dm06_wait_for.cpp)
-#add_executable(czbk_cpp ${EXE_SOURCES}  src/classbasic/MyTeacher.cpp src/classbasic/MyTeacher.h src/classbasic/d202_class_header.cpp src/day03/d01_constructor.cpp src/day03/d04_constructor.cpp src/day03/d05_constructor.cpp src/day03/d06_constructor.cpp src/day03/d07_copy.cpp src/inerface.h src/day03/d10_constructor_list.cpp src/day03/d13_new_delete.cpp)
+#add_executable(CPPBasic_d06_06 src/dm06_thread/dm06_wait_for.cpp)
+
+
+set(SRCS
+        src/thread/RunLoop.cpp
+        src/dm07_trhead_demo/LmRunLoop.cpp
+        src/dm07_trhead_demo/ThreadDemo.cpp
+        )
+
+include_directories(${CPPBasic_SOURCE_DIR}/src)
+
+add_executable(ThreadDemo ${SRCS})
+#add_executable(app_cpp ${EXE_SOURCES}  src/classbasic/MyTeacher.cpp src/classbasic/MyTeacher.h src/classbasic/d202_class_header.cpp src/day03/d01_constructor.cpp src/day03/d04_constructor.cpp src/day03/d05_constructor.cpp src/day03/d06_constructor.cpp src/day03/d07_copy.cpp src/inerface.h src/day03/d10_constructor_list.cpp src/day03/d13_new_delete.cpp)
