@@ -78,7 +78,7 @@ void testObj() {
 
     //C++语法
     //new 会调用构造函数； delete会调用析构函数；
-    TestObj *p2 = new TestObj(20);
+    auto *p2 = new TestObj(20);
     cout << "p2 = " << p2->getA() << endl;
     delete p2;
 }

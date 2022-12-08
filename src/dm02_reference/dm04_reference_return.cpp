@@ -27,10 +27,11 @@ int &getAA2() {
 //    a = 10;
 //    return a;
 //}
-int main1101() {
+int test1() {
     int a1 = getAA1();
     int a2 = getAA2();
 
+    //对应的内存空间已经释放；
     int &a3 = getAA2();
 
     cout << "a1 = " << a1 << endl;
@@ -49,16 +50,21 @@ int g1() {
 
 //返回变量本身
 int &g2() {
-    static int a = 10;
+    static int a = 10;//第二次调用，静态变量重复定义，赋值无效；
     a++;
     cout << "g2 :" << a << endl;
     return a;
 }
 
-int main1103() {
+int test2() {
 //    g1() = 100;//不可以，返回的是值
     g2() = 100;//可以。返回变量的本身,函数返回值是左值
     g2();
 
     return 0;
+}
+
+int main(){
+    test1();
+    test2();
 }

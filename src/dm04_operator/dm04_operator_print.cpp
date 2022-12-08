@@ -15,10 +15,13 @@ public:
 private:
     friend Complex &operator+(Complex &c1, Complex &c2);
 
+    //前置++
     friend Complex &operator++(Complex &c);
 
+    //后置++
     friend Complex &operator++(Complex &c, int);
 
+    //左移操作符号
     friend ostream &operator<<(ostream &cout, Complex &c);
 
 public:
@@ -63,8 +66,8 @@ Complex &operator+(Complex &c1, Complex &c2) {
 }
 
 Complex &operator++(Complex &c) {
-    ++c.a;
-    ++c.b;
+    c.a++;
+    c.b++;
     return c;
 }
 
@@ -80,6 +83,7 @@ Complex &operator++(Complex &c, int) {
     return tmp;
 }
 
+//重载左移操作符，便于打印
 ostream &operator<<(ostream &cout, Complex &c) {
     cout << "开始打印" << endl;
     cout << "c.a = " << c.a << ",c.b = " << c.b;

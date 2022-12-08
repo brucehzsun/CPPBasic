@@ -13,16 +13,24 @@ public:
         cout << "b = " << this->b << endl;
     }
 
+    int d;
+protected:
+    int c;
 private:
-    int a;
-    int b;
+    int a = 1;
+    int b = 2;
 };
 
+//class Child : private Parent {
+//class Child : protected Parent {
 class Child : public Parent {
 public:
-
+    void test() {
+        this->c = 5;
+        this->d = 6;
+    }
 private:
-    int c;
+    int d;
 };
 
 int main() {

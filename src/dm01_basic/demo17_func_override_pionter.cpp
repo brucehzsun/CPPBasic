@@ -2,7 +2,6 @@
 // Created by bruce on 2018/9/24.
 //
 
-#include "demo17_func_override_pionter.h"
 #include <iostream>
 
 using namespace std;

@@ -39,11 +39,14 @@ int main() {
     c1.printParentB();
     c1.printChildB();
     c1.print();
+    c1.a = 10;
 
     c1.Parent::b = 200;
     c1.printParentB();
     c1.printChildB();
     c1.Parent::print();
     c1.Child::print();
+    std::cout << c1.a << std::endl;
+
 }
 

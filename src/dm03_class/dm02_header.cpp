@@ -6,9 +6,12 @@
 
 using namespace std;
 
-int main201111() {
+int main() {
     MyTeacher t1;
-    t1.setAge(43);
+//    t1.setAge(43);
 
     cout << "teacher age = " << t1.getAge() << endl;
+    cout << "finish" << endl;
+
+
 }

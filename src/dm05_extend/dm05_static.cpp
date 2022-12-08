@@ -16,12 +16,23 @@ int Parent::a = 100;
 
 class Child : Parent {
 public:
+    Child(int b) : Parent() {
+        this->b = b;
+    }
+
+public:
     int printA() {
         cout << "a = " << a << endl;
+        cout << "b = " << b << endl;
+    }
+    void setB(int b){
+        this->b = b;
     }
 };
 
 int main() {
-    Child c1;
+    Child c1{4};
+    c1.printA();
+    c1.setB(5);
     c1.printA();
 }

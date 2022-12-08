@@ -13,6 +13,10 @@ public:
     }
 
 private:
+    int a;
+    int b;
+
+private:
     friend Complex &operator+(Complex &c1, Complex &c2);
 
     friend Complex &operator++(Complex &c);
@@ -20,13 +24,9 @@ private:
     friend Complex &operator++(Complex &c, int);
 
 public:
-    int getA() {
-        return this->a;
-    }
+    int getA() { return this->a; }
 
-    int getB() {
-        return this->b;
-    }
+    int getB() { return this->b; }
 
     Complex &operator-(Complex &other) {
         Complex tmp(this->getA() - other.getA(), this->getB() - other.getB());
@@ -43,23 +43,23 @@ public:
      * 后置--
      * @return
      */
-    Complex& operator--(int) {
+    Complex &operator--(int) {
         Complex temp = *this;
         --this->a;
         --this->b;
         return temp;
     }
 
-private:
-    int a;
-    int b;
+
 };
 
 Complex &operator+(Complex &c1, Complex &c2) {
+    std::cout << "operator+" << std::endl;
     Complex temp(c1.a + c2.a, c1.b + c2.b);
     return temp;
 }
 
+//前置++
 Complex &operator++(Complex &c) {
     ++c.a;
     ++c.b;
@@ -73,27 +73,28 @@ Complex &operator++(Complex &c) {
  */
 Complex &operator++(Complex &c, int) {
     Complex tmp = c;
-    ++c.a;
-    ++c.b;
+    c.a++;
+    c.b++;
     return tmp;
 }
 
 int main() {
     Complex c1(1, 2), c2(3, 4);
-
     Complex c3 = c1 + c2;
+    cout << "+： c3.a = " << c3.getA() << ", c3.b = " << c3.getB() << endl;
 
-    cout << "+ c3.a = " << c3.getA() << ", c3.b = " << c3.getB() << endl;
     Complex c4 = c2 - c1;
-    cout << "- c4.a = " << c4.getA() << ", c4.b = " << c4.getB() << endl;
+    cout << "-： c4.a = " << c4.getA() << ", c4.b = " << c4.getB() << endl;
 
-    //++Complex;
+    //前置++    ++Complex;
     ++c1;
-    cout << "++c1; c.a = " << c1.getA() << ", c.b = " << c1.getB() << endl;
-    //--Complex;
-    --c1;
-    cout << "--c1; c.a = " << c1.getA() << ", c.b = " << c1.getB() << endl;
+    cout << "++：c1; c.a = " << c1.getA() << ", c.b = " << c1.getB() << endl;
 
+    //前置-- --Complex;
+    --c1;
+    cout << "--：c1; c.a = " << c1.getA() << ", c.b = " << c1.getB() << endl;
+
+    //后置++
     Complex c5 = c1++;
     cout << "测试后置++ Complex c5 = c1++; c1.a = " << c1.getA() << ",c1.b = " << c1.getB() << endl;
     cout << "测试后置++ Complex c5 = c1++; c5.a = " << c5.getA() << ",c5.b = " << c5.getB() << endl;
@@ -101,6 +102,4 @@ int main() {
     Complex c6 = c1--;
     cout << "测试后置-- Complex c6 = c1--; c1.a = " << c1.getA() << ",c1.b = " << c1.getB() << endl;
     cout << "测试后置-- Complex c6 = c1--; c6.a = " << c6.getA() << ",c6.b = " << c6.getB() << endl;
-
-
 }

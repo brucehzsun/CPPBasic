@@ -5,7 +5,12 @@
 
 using namespace std;
 
-class Base1 {
+class Parent {
+public:
+    int age;
+};
+
+class Base1 : public Parent {
 public:
     Base1(int a) {
         this->a = a;
@@ -15,11 +20,12 @@ public:
         cout << "a = " << a << endl;
     }
 
+    int a = 10;
 private:
-    int a;
+
 };
 
-class Base2 {
+class Base2 : public Parent {
 public:
     Base2(int b) {
         this->b = b;
@@ -29,8 +35,10 @@ public:
         cout << "b = " << b << endl;
     }
 
-private:
     int b;
+    int a1 = 20;
+private:
+
 };
 
 class C : public Base1, public Base2 {
@@ -43,13 +51,16 @@ public:
         cout << "c = " << c << endl;
     }
 
-private:
     int c;
+    int a2 = 30;
+private:
+
 };
 
 int main() {
-    C c1(1,2,3);
+    C c1(1, 2, 3);
     c1.printB1();
     c1.printB2();
     c1.printC();
+//    std::cout << c1.age << std::endl;
 }

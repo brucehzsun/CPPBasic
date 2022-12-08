@@ -48,8 +48,11 @@ void fun(Location location) {
 int main() {
     Location l1(1, 2);
 
+//    拷贝构造函数
+//    Location l2 = l1;
+
     //拷贝构造函数
-    Location l2 = l1;
+//    Location l2(l1);
 
     //l1实参初始化形参，会调用拷贝构造函数，l1和fun方法内的location不是一个对象；
     fun(l1);

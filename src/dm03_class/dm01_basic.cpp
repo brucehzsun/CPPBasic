@@ -25,7 +25,7 @@ public:
 
 };
 
-int main201() {
+int main() {
     MyCircle c1, c2;
     c1.setR(12);
     cout << "c1 s = " << c1.getS() << endl;

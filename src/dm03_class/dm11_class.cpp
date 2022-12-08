@@ -14,6 +14,9 @@ public:
     int getA() {//0
         return this->a;
     }
+    int getB() {//0
+      return this->b;
+    }
 };
 
 int main() {
